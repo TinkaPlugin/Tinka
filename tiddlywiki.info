@@ -19,8 +19,9 @@
         "tinka": [
             "--rendertiddler",
             "$:/plugins/ahahn/tinka",
-            "tinka.json",
-            "application/json"
+            "tinka.tid",
+            "application/json",
+            "$:/core/templates/tid-tiddler"
         ]
     }
 }

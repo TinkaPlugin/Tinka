@@ -3,7 +3,7 @@
     "core-version": ">=5.1.8",
     "description": "Tinka - an easy plugin packer",
     "list": "readme usage license",
-    "source": "http://twguides.org/tinka",
+    "source": "http://tinkaplugin.github.io",
     "title": "$:/plugins/ahahn/tinka",
     "version": "0.3.0"
 }
