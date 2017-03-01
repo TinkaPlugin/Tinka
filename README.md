@@ -1,3 +1,6 @@
+
+**This is a plugin for the brilliant wiki system TiddlyWiki5, located at http://www.tiddlywiki.com**
+
 This is a Control Panel extension that aims to simplify the plugin creation and editing process. After installing, you will find a new tab in your control panel that makes creating and modifying plugins a little bit easier.
 
 <a target="blank" href="http://tinkaplugin.github.io">Project Homepage on tinkaplugin.github.io</a>
