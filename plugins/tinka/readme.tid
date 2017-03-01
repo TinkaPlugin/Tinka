@@ -1,0 +1,57 @@
+title: $:/plugins/ahahn/tinka/readme
+type: text/vnd.tiddlywiki
+
+This is a Control Panel extension that aims to simplify the plugin creation and editing process. After installing, you will find a new tab in your control panel that makes creating and modifying plugins a little bit easier.
+
+<a target="blank" href="http://tinkaplugin.github.io">Project Homepage on tinkaplugin.github.io</a>
+
+!! Version History
+
+!!! 2017-03-01 Release of version 0.3.0
+
+After more than a year, Tinka is now on <a target="blank" href="http://tinkaplugin.github.io">github</a> and also released under the [[MIT license|$:/plugins/ahahn/tinka/license]].
+
+''Changelog''
+
+* Packaging success now produces a modal that actively reminds the user to refresh the wiki.
+* The search tab state is now kept in a temporary system tiddler.
+* Added warning when repackaging themes that are not active.
+* The 'Help Tab' functionality is now also available for plugins that do not follow the `$:/plugins/...` naming convention. In particular this applies to themes and core plugins.
+* Fixed wrong headings for some modal dialogs.
+* Older action widgets remodeled to use the (new) CommonAction widget as a base.
+* Fixed error check that prevented users to enter a minimal core version dependency when creating a new plugin.
+
+!!! 2015-09-20 Release of version 0.2.0-beta
+
+''Changelog''
+
+* Added Help-Tab capabilities to quickly navigate between plugin tiddlers.
+* Moved Create-Plugin wizard to its own tab.
+* Redid Create-Plugin UI to be easier and more accessible.
+* Backups can now also be downloaded/exported.
+* Added more documentation.
+
+!!! 2015-05-18 Release of version 0.1.0
+
+''Changelog''
+
+* The metadata section now include edit fields for the `name` and `source` fields.
+* The //default search// box now only searches for title matches.
+* Backups can now be exported/downloaded.
+* <div>Backups can now be restored and made active again. If another version of the plugin is already active, the option is given to back it up,before restoring the backup.
+
+
+''Warning: For this mechanism to work, there has to be an 'original-title' field present in the backup tiddler. This is automatically added by Tinka, however earlier versions of Tinka did not add this field. If you want to restore a backup from an earlier version of Tinka, you will have to add the 'original-title' field manually and populate it with the former title of the plugin tiddler, in order for the restore function to work.''
+</div>
+
+!!! 2015-04-30 Release of version 0.0.2
+
+''Changelog''
+
+* The list of plugin tiddlers is now hidden by default, since some lists can get very long.
+* Added a different search option (default/filter)
+* Improved Documentation slightly
+* Added a backup option, so a plugin can be backed up before repackaging.
+
+   
+!!! 2015-04-29 Release of version 0.0.1

@@ -1,0 +1,9 @@
+{
+    "author": "Andreas Hahn",
+    "core-version": ">=5.1.8",
+    "description": "Tinka - an easy plugin packer",
+    "list": "readme usage license",
+    "source": "http://twguides.org/tinka",
+    "title": "$:/plugins/ahahn/tinka",
+    "version": "0.3.0"
+}

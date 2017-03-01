@@ -1,0 +1,170 @@
+caption: Create a new Plugin
+tags: $:/tags/tinka/ControlPanel
+title: $:/plugins/ahahn/tinka/createDialog
+type: text/vnd.tiddlywiki
+
+\define plugin-tiddler-selection()
+[[$(target)$]plugintiddlers[]]
+\end
+
+\define qualified-modify-add()
+$(qualifiedTiddler)$-$(target)$-add
+\end
+
+\define qualified-modify-diff()
+$(qualifiedTiddler)$-$(target)$-diff
+\end
+
+\define diff-plugin-title()
+$(qualifiedTiddler)$-$(target)$-diff!!create-title
+\end
+
+\define added-filter()
+[[$(addedTiddlers)$]tags[]]
+\end
+
+\define concatPluginTitle(prefix, sep)
+$prefix$$(createTitleOrg)$$sep$$(createTitleName)$
+\end
+
+\define tiddlerReference(ref)
+$(currentTiddler)$$ref$
+\end
+
+\define varsReference(ref)
+$(TinkaVars)$$ref$
+\end
+
+
+!! Create New Plugin
+
+<span class="tinka-note">Usage: Enter the necessary metadata for your plugin and use the Filter selection below to pick the tiddlers that should be added to the plugin. After selecting the tiddlers, press 'Package Plugin'. Refer to the [[Documentation|$:/plugins/ahahn/tinka/usage]] for further help.</span>
+
+<$set name="target" value="skeleton">
+<$set name="qualifiedTiddler" value=<<qualify "$:/temp/tinka/modify">> >
+
+!!! Step 1: Enter Metadata
+
+
+<$set name="currentTiddler" value=<<qualified-modify-diff>>>
+	<$transclude mode="block" tiddler="$:/plugins/ahahn/tinka/createMetadata"/>
+</$set>
+
+!!! Step 2: Add Tiddlers
+
+Use the search box below to select the tiddlers you want to add to the plugin.
+
+{{$:/plugins/ahahn/tinka/searchDisplay}}
+
+
+''Added Tiddlers''
+
+<$set name="addedTiddlers" value=<<qualified-modify-add>> >
+<ul>
+<$list filter=<<added-filter>> emptyMessage="<i>No tiddlers added.</i>">
+		<li class="tinka-list-item">
+        <$checkbox tiddler=<<qualified-modify-add>> tag={{!!title}} />
+        <$link to={{!!title}}>{{!!title}}</$link>
+        </li>
+</$list>
+</ul>
+</$set>
+
+
+<$button class="tc-btn-big-green tinka-orange">
+<$set name="TinkaVars" value="$:/temp/tinka/CreateVars">
+<$set name="currentTiddler" value=<<qualified-modify-diff>>>
+	<$action-deletetiddler $tiddler=<<TinkaVars>> />
+	<$action-setfield $tiddler=<<TinkaVars>> result="false" />
+
+	<!-- Check whether a plugin title was given -->
+	<$tinka-check text={{!!create-title-org}} pattern="^[^\s]+$">
+		<$tinka-filter verb="fail">
+			<$action-setfield $tiddler=<<TinkaVars>> result="true"/>
+			<$action-setfield $tiddler=<<TinkaVars>> errorTitle="The plugin title is not allowed to be empty or contain whitespaces."/>
+		</$tinka-filter>
+	</$tinka-check>
+		
+	<$tinka-check text={{!!create-title-name}} pattern="^[^\s]+$">
+		<$tinka-filter verb="fail">
+			<$action-setfield $tiddler=<<TinkaVars>> result="true"/>
+			<$action-setfield $tiddler=<<TinkaVars>> errorTitle="The plugin path is not allowed to be empty or contain whitespaces."/>
+		</$tinka-filter>
+	</$tinka-check>
+		
+	<!-- Check whether a plugin type is set-->
+	<$tinka-check text={{!!create-plugin-type}} pattern="^.+$">
+		<$tinka-filter verb="fail">
+			<$action-setfield $tiddler=<<TinkaVars>> result="true"/>
+			<$action-setfield $tiddler=<<TinkaVars>> errorType="You have to set a plugin type."/>
+		</$tinka-filter>
+	</$tinka-check>
+		
+		<!-- Check whether a name was given, depending on the plugin type-->
+		<$reveal state=<<tiddlerReference "!!create-plugin-type">> type="match" text="plugin">
+			<$tinka-check text={{!!create-description}} pattern="^.+$">
+				<$tinka-filter verb="fail">
+					<$action-setfield $tiddler=<<TinkaVars>> result="true"/>
+					<$action-setfield $tiddler=<<TinkaVars>> errorPlugin="You have to enter a plugin title."/>
+				</$tinka-filter>
+			</$tinka-check>
+		</$reveal>
+		<$reveal state=<<tiddlerReference "!!create-plugin-type">> type="match" text="theme">
+			<$tinka-check text={{!!create-name}} pattern="^.+$">
+				<$tinka-filter verb="fail">
+					<$action-setfield $tiddler=<<TinkaVars>> result="true"/>
+					<$action-setfield $tiddler=<<TinkaVars>> errorTheme="You have to enter a theme title."/>
+				</$tinka-filter>
+			</$tinka-check>
+		</$reveal>
+		
+		<!--Check Version numbers, if entered-->
+		<$reveal state=<<tiddlerReference "!!create-version">> type="nomatch" text="">
+			<$tinka-check text={{!!create-version}} pattern="^(\d)+\.(\d)+\.(\d)+(-\w+)?$">
+				<$tinka-filter verb="fail">
+					<$action-setfield $tiddler=<<TinkaVars>> result="true"/>
+					<$action-setfield $tiddler=<<TinkaVars>> errorVersion="Version numbers must have the following format: X.X.X (e.g. 1.0.0)."/>
+				</$tinka-filter>
+			</$tinka-check>
+		</$reveal>
+		
+		<$reveal state=<<tiddlerReference "!!create-core-version">> type="nomatch" text="">
+			<$tinka-check text={{!!create-core-version}} pattern="^(>|>=|<|<=)?(\d)+\.(\d)+\.(\d)+(-\w+)?$">
+				<$tinka-filter verb="fail">
+					<$action-setfield $tiddler=<<TinkaVars>> result="true"/>
+					<$action-setfield $tiddler=<<TinkaVars>> errorCoreVersion="The core version number must have the following format: [>|>=|<|<=|]X.X.X-AAAA (e.g. >=5.1.8)."/>
+				</$tinka-filter>
+			</$tinka-check>
+		</$reveal>
+
+	<$set name="currentTiddler" value=<<TinkaVars>> >
+	<$tinka-check text={{!!result}} pattern="^false$">
+	<$set name="currentTiddler" value=<<qualified-modify-diff>>>
+	<$tinka-filter verb="pass">
+	<!--Compute the plugin title (create-title> from the create-title-org and create-title-name fields -->
+
+		<$set name="createTitleOrg" value={{!!create-title-org}}>
+			<$set name="createTitleName" value={{!!create-title-name}}>
+				<$action-setfield create-title=<<concatPluginTitle "$:/plugins/" "/">> />
+			</$set>
+		</$set>
+	
+		<$tinka-saveTaglistToField $target=<<qualified-modify-add>> $tiddler=<<qualified-modify-diff>> $field="addTiddlers"/>
+		<$tinka-repackagePlugin $plugin="$:/plugins/unknown/newPlugin" $create="yes" $diff=<<qualified-modify-diff>> />
+		<$action-deletetiddler $tiddler=<<qualified-modify-add>>/>
+		<$action-deletetiddler $tiddler=<<qualified-modify-diff>>/>
+		<$action-sendmessage $message="tm-modal" $param="$:/plugins/ahahn/tinka/packageSuccess" />
+	</$tinka-filter>
+	<$tinka-filter verb="fail">
+		<$action-sendmessage $message="tm-modal" $param="$:/plugins/ahahn/tinka/packageErrors" errorVars=<<TinkaVars>>/>
+	</$tinka-filter>
+	</$set>
+	</$tinka-check>
+	</$set>
+</$set>
+</$set>
+Package plugin</$button>
+
+
+</$set>
+</$set>

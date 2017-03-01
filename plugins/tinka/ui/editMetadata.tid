@@ -1,0 +1,9 @@
+title: $:/plugins/ahahn/tinka/editMetadata
+type: text/vnd.tiddlywiki
+
+|tinka-meta-table|k
+|Author:|<$edit-text type="text" tag="input" field="author"/>|Description:|<$edit-text tag="input" type="text" field="description"/>|
+|Dependents:|<$edit-text tag="input" type="text" field="dependents"/>|List:|<$edit-text tag="input" type="text" field="list"/>|
+|Plugin-Type:|<$edit-text tag="input" type="text" field="plugin-type"/>|Version:|<$edit-text tag="input" type="text" field="version"/>|
+|Source:|<$edit-text tag="input" type="text" field="source"/>|Name:|<$edit-text tag="input" type="text" field="name"/>|
+|Core-Version:|<$edit-text tag="input" type="text" field="core-version"/>|||

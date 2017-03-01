@@ -1,0 +1,27 @@
+caption: Usage/Help
+created: 20150430092825762
+modified: 20170225181342015
+tags: 
+title: $:/plugins/ahahn/tinka/usage
+type: text/vnd.tiddlywiki
+
+{{$:/plugins/ahahn/tinka/docs/How to create a new plugin}}
+
+{{$:/plugins/ahahn/tinka/docs/Help Tab}}
+
+!! Notes
+
+When packaging or repackaging a plugin, the version number of the plugin is automatically increased. This might not be wanted in all cases and has to be manually corrected after packaging.
+
+Also version suffixes such as:
+
+* -prerelease
+* -beta
+
+are supported and will be appended to the new version number when present.
+
+!! Plugin mechanism
+For more information about how the plugin mechanism in TiddlyWiki works, see the official documentation: http://tiddlywiki.com/#PluginMechanism
+
+!! Filter language
+Filters are useful to select a subset of tiddlers from a wiki. If you are new to filters, learn more about them here: http://tiddlywiki.com/#Filters

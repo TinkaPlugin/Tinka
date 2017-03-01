@@ -1,0 +1,10 @@
+title: $:/plugins/ahahn/tinka/createMetadata/tableEnd
+type: text/vnd.tiddlywiki
+
+<tr>
+        <td>Version:</td>
+        <td><$edit-text tag="input" type="text" field="create-version"/></td>
+        
+		<td>Core-Version:</td>
+        <td><$edit-text type="text" placeholder="e.g. >=5.1.8" tag="input" field="create-core-version"/></td>
+	</tr>

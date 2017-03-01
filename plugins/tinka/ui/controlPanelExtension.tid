@@ -1,0 +1,6 @@
+caption: Tinka Plugin Management
+tags: $:/tags/ControlPanel
+title: $:/plugins/ahahn/tinka/controlPanelExtension
+type: text/vnd.tiddlywiki
+
+<<tabs "[[$:/plugins/ahahn/tinka/pluginManagement]] [[$:/plugins/ahahn/tinka/createDialog]] [[$:/plugins/ahahn/tinka/backupList]]" "$:/plugins/ahahn/tinka/pluginManagement" "$:/temp/tinka/cpTabs">>

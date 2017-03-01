@@ -1,0 +1,26 @@
+{
+    "description": "Basic client-server edition",
+    "plugins": [
+        "tiddlywiki/tiddlyweb",
+        "tiddlywiki/filesystem",
+        "tiddlywiki/highlight"
+    ],
+    "themes": [
+        "tiddlywiki/vanilla",
+        "tiddlywiki/snowwhite"
+    ],
+    "build": {
+        "index": [
+            "--rendertiddler",
+            "$:/plugins/tiddlywiki/tiddlyweb/save/offline",
+            "index.html",
+            "text/plain"
+        ],
+        "tinka": [
+            "--rendertiddler",
+            "$:/plugins/ahahn/tinka",
+            "tinka.json",
+            "application/json"
+        ]
+    }
+}

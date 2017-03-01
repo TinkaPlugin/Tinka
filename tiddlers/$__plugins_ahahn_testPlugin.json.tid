@@ -1,0 +1,35 @@
+author: Andreas Hahn
+created: 20170227183818790
+description: Test Plugin
+list: [[Entry A]]
+modified: 20170301164725575
+plugin-type: plugin
+title: $:/plugins/ahahn/testPlugin
+type: application/json
+version: 0.0.18
+
+{
+    "tiddlers": {
+        "Entry A": {
+            "created": "20170227183646125",
+            "text": "First plugin entry",
+            "title": "Entry A",
+            "tags": "",
+            "modified": "20170227183656584"
+        },
+        "Another": {
+            "created": "20170301164346085",
+            "text": "Else",
+            "title": "Another",
+            "tags": "",
+            "modified": "20170301164618613"
+        },
+        "$:/plugins/ahahn/testPlugin/hmm": {
+            "created": "20170301164644908",
+            "text": "asdggg",
+            "title": "$:/plugins/ahahn/testPlugin/hmm",
+            "tags": "",
+            "modified": "20170301164652870"
+        }
+    }
+}

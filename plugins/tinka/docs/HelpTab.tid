@@ -1,0 +1,11 @@
+title: $:/plugins/ahahn/tinka/docs/Help Tab
+type: text/vnd.tiddlywiki
+
+!!Using the Help Tab
+
+When working on a plugin, it is often handy to be able to navigate quickly between the plugin tiddlers. That is what the Help Tab is for.
+After enabling it in the "Tinka Plugin Management" tab for a specific plugin in the Control Panel, it gives you an additional sidebar tab, that contains a list of all the tiddlers that are contained in the plugin in question. Furthermore, it also shows you tiddlers that live in the same "directory" which are likely tiddlers that you want to add to the plugin eventually.
+
+If you have tiddlers whose names aren't prefixed by the plugin path, you can use the Filter search included in the help tab to select those. For example, if the rest of your tiddlers is scattered somewhere in the wiki, but tagged with <span class="tc-tag-label">myPlugin</span>, you could use the filter: `[tag[myPlugin]]` to select them.
+
+Also included in the Help Tab is a button to quickly add a new tiddler to a plugin without having to type out the whole `$:/plugins.../...` path and an option to disable the Help Tab again. Lastly, the "Quick Package" button gives you the option of quickly integrating changes you made to individual tiddlers into the plugin. Note that the "Quick Package" Button will only integrate the changes you made to tiddlers already contained in the plugin into the plugin tiddler itself, you can't add new tiddlers to a plugin this way. For those tasks, you will still have to use the control panel menu.

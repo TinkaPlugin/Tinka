@@ -1,0 +1,47 @@
+create-plugin-type: plugin
+create-title: 
+created: 20150429174811520
+modified: 20170225181341996
+tags: 
+title: $:/plugins/ahahn/tinka/createMetadata
+type: text/vnd.tiddlywiki
+
+''Plugin-Type:'' <$edit-text tag="input" type="text" field="create-plugin-type"/>
+        <$button popup="$:/temp/tinka/NewPluginPopup" class="tc-btn-invisible tc-btn-dropdown">{{$:/core/images/down-arrow}}</$button>
+	
+		<$reveal state="$:/temp/tinka/NewPluginPopup" type="popup" position="below">
+		<div class="tc-block-dropdown tc-edit-type-dropdown">
+		<$linkcatcher to="!!create-plugin-type">
+			<$link to="plugin">Plugin</$link>
+			<$link to="theme">Theme</$link>
+		</$linkcatcher>
+		</div>
+		</$reveal>
+
+<$reveal state="!!create-plugin-type" type="nomatch" text="plugin" >
+	<$reveal state="!!create-plugin-type" type="nomatch" text="theme" >
+		<table class="tinka-meta-table">
+		<$transclude tiddler="$:/plugins/ahahn/tinka/createMetadata/tableHead" />
+		<$transclude tiddler="$:/plugins/ahahn/tinka/createMetadata/noSpecialPluginType" />
+		<$transclude tiddler="$:/plugins/ahahn/tinka/createMetadata/tableEnd" />
+		</table>
+	</$reveal>
+</$reveal>
+
+<$reveal state="!!create-plugin-type" type="match" text="plugin">
+		<table class="tinka-meta-table">
+		<$transclude tiddler="$:/plugins/ahahn/tinka/createMetadata/tableHead" />
+		<$transclude tiddler="$:/plugins/ahahn/tinka/createMetadata/pluginPluginType" />
+		<$transclude tiddler="$:/plugins/ahahn/tinka/createMetadata/tableEnd" />
+		</table>
+</$reveal>
+
+<$reveal state="!!create-plugin-type" type="match" text="theme">
+		<table class="tinka-meta-table">
+		<$transclude tiddler="$:/plugins/ahahn/tinka/createMetadata/tableHead" />
+		<$transclude tiddler="$:/plugins/ahahn/tinka/createMetadata/themePluginType" />
+		<$transclude tiddler="$:/plugins/ahahn/tinka/createMetadata/tableEnd" />
+		</table>
+</$reveal>
+
+''bold'' = //required field//

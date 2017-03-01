@@ -1,0 +1,10 @@
+created: 20150429192209932
+modified: 20170227183351487
+tags: 
+title: Intro
+type: text/vnd.tiddlywiki
+
+This is a Control Panel extension that helps with creating and modifying plugins in the browser.
+You can get the extension by dragging the following link into your own wiki: $:/plugins/ahahn/tinka
+
+<a target="blank" href="http://twguides.org/tinka.html">Project Homepage on TWGuides.org</a>

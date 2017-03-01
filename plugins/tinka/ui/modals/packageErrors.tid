@@ -1,0 +1,22 @@
+caption: Packaging Errors!
+subtitle: Packaging Errors!
+title: $:/plugins/ahahn/tinka/packageErrors
+type: text/vnd.tiddlywiki
+
+\define errorFilter()
+[[$(errorVars)$]fields[]prefix[error]]
+\end
+
+
+<div class="tinka-error">
+
+!!{{$:/core/images/close-button}} There were some errors !
+
+The follwoing errors occured whilst processing your request:
+
+<ul>
+	<$list filter=<<errorFilter>> variable="errorField">
+		<li><$view tiddler=<<errorVars>> field=<<errorField>> /></li>
+	</$list>
+</ul>
+</div>

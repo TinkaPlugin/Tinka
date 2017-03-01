@@ -1,0 +1,12 @@
+caption: Backup Success
+subtitle: Backup Success
+title: $:/plugins/ahahn/tinka/backupSuccess
+type: text/vnd.tiddlywiki
+
+<div class="tinka-success">
+
+!!{{$:/core/images/done-button}} Backup Success !
+
+A backup of the plugin was successfully created.
+
+</div>

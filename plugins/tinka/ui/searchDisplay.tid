@@ -1,0 +1,4 @@
+title: $:/plugins/ahahn/tinka/searchDisplay
+type: text/vnd.tiddlywiki
+
+<<tabs "[[$:/plugins/ahahn/tinka/search-default]] [[$:/plugins/ahahn/tinka/search-filter]]" "$:/plugins/ahahn/tinka/search-default" "$:/temp/tinka/searchTab">>

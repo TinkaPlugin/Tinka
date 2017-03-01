@@ -1,0 +1,12 @@
+caption: Restore Successful
+subtitle: Restore Successful
+title: $:/plugins/ahahn/tinka/restoreSuccess
+type: text/vnd.tiddlywiki
+
+<div class="tinka-success">
+
+!!{{$:/core/images/done-button}} Restore Success !
+
+The backup was successfully restored!
+
+</div>

@@ -1,0 +1,122 @@
+list-after: $:/themes/tiddlywiki/vanilla/base
+tags: $:/tags/Stylesheet
+title: $:/plugins/ahahn/tinka/style
+type: text/vnd.tiddlywiki
+
+
+/* ==button styles== */
+
+button.tinka-blue, button.tinka-orange {
+  font-weight: normal;
+  font-size: 1em;
+  color: #fff;
+  fill: #fff;
+}
+
+.tinka-blue {
+  background-color: #5E9FCA;
+}
+
+.tinka-orange {
+  background-color: #FF8C19;
+}
+
+.tinka-archive-buttons {
+  padding-left: 30px;
+  display: inline-block;
+}
+
+button.tinka-sidebar-button, button.tinka-invisible  {
+  color: #acacac;
+  fill: #acacac;
+}
+
+.tinka-enlarge {
+  font-size: 1.5em;
+  padding: 1.5em;
+}
+
+.tinka-enlarge svg {
+  font-size: 3em;
+}
+
+.tinka-orb {
+  border-radius: 10pt;
+}
+
+.tc-dirty .tinka-button-refresh {
+  display: none;
+}
+
+/* ==container styles== */
+
+.tinka-centered-container {
+  text-align: center;
+  padding: 1em;
+}
+
+.tinka-note {
+  display:block;
+  padding-left: 5px;
+  background-color: #FFF9B0;
+  color: #7F7A32;
+  border: 1px solid #7F7A32;
+  border-radius: 5px;
+  font-style: italic;
+  font-size: 0.8em;
+}
+
+.tinka-note-red {
+  display:block;
+  padding-left: 5px;
+  background-color: #E8DEE0;
+  color: #E82C0C;
+  border: 1px solid #E82C0C;
+  border-radius: 5px;
+  font-style: italic;
+  font-size: 0.8em;
+}
+
+/* ==text formatting== */
+
+.tinka-list-item {
+	list-style: none;
+}
+
+.tinka-saving {
+  display: none;
+}
+
+.tc-dirty .tinka-saving {
+  display: inline;
+}
+
+.tinka-success {
+  color: #26CC50;
+}
+
+.tinka-success .tc-image-done-button, .tinka-success .tc-image-save-button {
+  fill: #26CC50;
+}
+
+.tinka-error {
+  color: #F00;
+}
+
+.tinka-error .tc-image-close-button {
+  fill: #F00;
+}
+
+table.tinka-meta-table tr td {
+  padding: 5px;
+}
+
+/* ==forms style== */
+.tc-control-panel input.tinka-inline-edit {
+  width: 30%;
+  min-width: 30pt;
+}
+
+.tc-control-panel input.tinka-full-edit,  input.tinka-full-edit {
+  width: 100%;
+}

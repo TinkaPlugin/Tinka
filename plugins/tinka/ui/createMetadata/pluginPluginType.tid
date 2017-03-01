@@ -1,0 +1,7 @@
+title: $:/plugins/ahahn/tinka/createMetadata/pluginPluginType
+type: text/vnd.tiddlywiki
+
+<tr>
+    	<td>''Plugin Title:''</td>
+        <td colspan="3"><$edit-text class="tinka-full-edit" tag="input" type="text" placeholder="e.g. Tinka - Plugin Packer" field="create-description"/></td>
+</tr>

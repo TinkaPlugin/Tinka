@@ -1,0 +1,22 @@
+caption: Packaging Success
+subtitle: Packaging Success
+title: $:/plugins/ahahn/tinka/packageSuccess
+type: text/vnd.tiddlywiki
+
+<div class="tinka-success">
+
+!!{{$:/core/images/done-button}} (Re-)Packaging Success !
+
+The plugin was successfully (re-)packaged. It is recommended to <u>save and reload</u> the wiki now in order to avoid plugins to misbehave.
+
+    <div class="tinka-centered-container">
+        <span class="tinka-saving">{{$:/core/images/save-button}} Saving...<br/><sub>(If your wiki doesn't save automatically, please save&reload manually.)</sub></span>
+        <$button class="tc-btn-big-green tinka-enlarge tinka-orb tinka-button-refresh">
+            <$action-sendmessage $message="tm-browser-refresh" />
+            {{$:/core/images/refresh-button}}
+            <p>
+                <b>RELOAD NOW!</b>
+            </p>
+        </$button>
+    </div>
+</div>

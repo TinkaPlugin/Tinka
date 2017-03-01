@@ -1,0 +1,23 @@
+title: $:/plugins/ahahn/tinka/createMetadata/tableHead
+type: text/vnd.tiddlywiki
+
+	<tr>
+		<td>''Plugin Path:''</td>
+        <td colspan="3">`$:/plugins/`<$edit-text class="tinka-inline-edit" type="text" placeholder="e.g. myName" tag="input" field="create-title-org"/>`/`<$edit-text type="text" class="tinka-inline-edit" placeholder="e.g. myPlugin" tag="input" field="create-title-name" /></td> 
+	</tr>
+    
+    <tr>
+		<td>Author:</td>
+        <td><$edit-text type="text" placeholder="e.g. John Doe" tag="input" field="create-author"/></td>
+		
+		<td>Source:</td>
+        <td><$edit-text tag="input" type="text" placeholder="e.g. http://twguides.org" field="source"/></td>
+	</tr>
+
+	<tr>
+		<td>Dependents:</td>
+        <td><$edit-text tag="input" type="text" field="create-dependents"/></td>
+        
+        <td>List:</td>
+        <td><$edit-text tag="input" type="text" placeholder="e.g. readme usage" field="create-list"/></td>
+  	</tr>

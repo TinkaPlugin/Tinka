@@ -1,0 +1,30 @@
+title: $:/plugins/ahahn/tinka/docs/How to create a new plugin
+type: text/vnd.tiddlywiki
+
+!! How to create a new plugin
+
+To create a completely new plugin, first go to the Control Panel extension Tinka provides and click on the "Create new Plugin" button. Next enter the ''plugin type'' of the plugin you want to create or choose a type from the dropdown menu. Usually you will want to use either the value "''plugin''" or "''theme''", as this covers most cases of plugins.
+
+Next is the ''plugin path'': This is the name of the tiddler where the finished plugin is going to be stored in. TiddlyWiki uses a special naming theme for these, so you will mostly find that the actual tiddlers that contain a plugin are named in this scheme:
+
+`$:/plugins/myOrganisation/pluginName`. 
+
+This ensures that plugins can be not only immideately recognized, but are also separate from other tiddlers in the wiki.
+
+After also entering a title for your new plugin or theme, you are basically good to go. These three fields: ''plugin type'', ''plugin path'' and the ''plugin title'' are all the fields that are required for a functioning plugin. In theory, you could now go ahead and press the "''Package Plugin''" button, which will give you an empty plugin shell to which you can add tiddlers later.
+
+In most cases however it is desired to also fill out the rest of the metadata fields. In detail, these are:
+
+* ''Author:'' Name of the plugin author.
+* ''Source:'' Website or URL of the plugin, also the place where updates are found.
+* ''Dependents:'' List of plugins this plugin depends on (usually empty, but e.g. `$:/core`)
+* ''List'': List of tiddlers contained in the plugin, that will serve as readme tiddlers, when inspecting a plugin via the control panel. (e.g. `$:/plugins/ahahn/tinka/readme`)
+* ''Version:'' Version of your plugin in the format: X.X.X
+* ''Core-Version:'' Usually the minimal TiddlyWiki version your plugin requires in order for it to work (e.g //>=5.1.8//)
+
+Depending on the plugin type you chose, you might also come across the following metadata fields:
+
+* ''Description:'' For plugins, this contains the plugin title that is shown in the control panel.
+* ''Name:'' For themes, this contains the theme title that is shown in the control panel.
+
+After entering the metadata, all that is left is to select the tiddlers you want to include in the plugin. You can search for these via the default search field, but you can also use a filter to find them (e.g. based on a tag). In most cases it is sufficient to enter the name of the plugin into the default search in order to find the tiddlers that belong to the plugin. Lastly, just click the "''Package Plugin''" button and you're done, you have now created your first plugin. A save&refresh will be required for it to be loaded into TiddlyWiki.

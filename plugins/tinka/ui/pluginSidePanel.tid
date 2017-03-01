@@ -1,0 +1,43 @@
+title: $:/plugins/ahahn/tinka/pluginSidePanel
+type: text/vnd.tiddlywiki
+
+\define pluginFilter()
+[[$(pluginPrefix)$]plugintiddlers[]sort[]]
+\end
+
+\define pluginDirFilter()
+[all[tiddlers]prefix[$(pluginPrefix)$]sort[]]
+\end
+
+\define newPluginTiddler()
+$(pluginPrefix)$/New Tiddler
+\end
+
+<$button class="tc-btn-invisible tinka-invisible">
+<$action-sendmessage $message="tm-new-tiddler" $param=<<newPluginTiddler>> />''
+{{$:/core/images/new-button}} Add Tiddler''</$button>
+
+!!!Shadow tiddlers contained in the plugin:
+
+<$list filter=<<pluginFilter>> template="$:/core/ui/ListItemTemplate"/>
+
+!!!Normal tiddlers in the plugin directory:
+<$list filter=<<pluginDirFilter>> template="$:/core/ui/ListItemTemplate"/>
+
+<$reveal state="!!extender" type="nomatch" text="open">
+<$button set="!!extender" setTo="open" class="tc-btn-invisible tinka-sidebar-button"><h3>{{$:/core/images/chevron-right}} Filter search</h3></$button>
+</$reveal>
+<$reveal state="!!extender" type="match" text="open">
+<$button set="!!extender" setTo="close" class="tc-btn-invisible tinka-sidebar-button"><h3>{{$:/core/images/chevron-down}} Filter search</h3></$button>
+<div>
+<$edit-text type="search" tiddler="$:/plugins/ahahn/tinka/temp/helpTabSearch" field="filterSearch" />
+<$list filter={{$:/plugins/ahahn/tinka/temp/helpTabSearch!!filterSearch}} template="$:/core/ui/ListItemTemplate"/>
+</div>
+</$reveal>
+
+<$button class="tc-btn-big-green tinka-orange">
+<$tinka-repackagePlugin $plugin=<<pluginPrefix>> $create="no" $diff="$:/plugins/ahahn/tinka/emptyDiff" />
+<$action-sendmessage $message="tm-modal" $param="$:/plugins/ahahn/tinka/packageSuccess" />Quick-Package</$button>
+<$button class="tc-btn-big-green tinka-blue">
+<$action-deletetiddler $tiddler=<<currentTiddler>> />
+Disable Help Tab</$button>

@@ -1,0 +1,7 @@
+title: $:/plugins/ahahn/tinka/createMetadata/themePluginType
+type: text/vnd.tiddlywiki
+
+<tr>
+        <td>''Theme Title:''</td>
+        <td colspan="3"><$edit-text  class="tinka-full-edit" tag="input" type="text" field="create-name"/></td>
+</tr>

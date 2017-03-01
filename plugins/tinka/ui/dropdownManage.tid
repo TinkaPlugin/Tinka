@@ -1,0 +1,139 @@
+title: $:/plugins/ahahn/tinka/dropdownManage
+type: text/vnd.tiddlywiki
+
+\define plugin-tiddler-selection()
+[[$(target)$]plugintiddlers[]]
+\end
+
+\define qualified-remove-popup()
+$:/state/popup/$(qualifiedTiddler)$-$(target)$-remove-popup
+\end
+
+\define qualified-modify-remove()
+$(qualifiedTiddler)$-$(target)$-remove
+\end
+
+\define qualified-modify-add()
+$(qualifiedTiddler)$-$(target)$-add
+\end
+
+\define qualified-modify-diff()
+$(qualifiedTiddler)$-$(target)$-diff
+\end
+
+\define target-type()
+$(target)$!!plugin-type
+\end
+
+\define added-filter()
+[[$(addedTiddlers)$]tags[]]
+\end
+
+\define pluginSuffixFilter()
+[[$(target)$]prefix[$:/plugins/]removeprefix[$:/plugins/]] [[$(target)$]!prefix[$:/plugins/]]
+\end
+
+\define sideTabNameBuilder()
+$:/plugins/ahahn/tinka/temp/$(pluginSuffix)$ - Help Tab
+\end
+
+\define helpTabCaption()
+$(pluginSuffix)$ - Help Tab
+\end
+
+\define helpTabText()
+<$set name="pluginPrefix" value="$(target)$" >
+<$set name="currentTiddler" value="$(sideTabName)$" >
+
+<$transclude tiddler="$:/plugins/ahahn/tinka/pluginSidePanel" />
+
+</$set>
+</$set>
+\end
+
+<$set name="qualifiedTiddler" value=<<qualify "$:/temp/tinka/modify">> >
+
+<$list filter=<<pluginSuffixFilter>> variable="pluginSuffix">
+<<SidebarTabName>>
+<$set name="sideTabName" value=<<sideTabNameBuilder>> >
+
+<$reveal state=<<sideTabName>> type="match" text="">
+<$button>Enable Help-Tab
+<$action-setfield $tiddler=<<sideTabName>> text=<<helpTabText>> caption=<<helpTabCaption>> tags="$:/tags/SideBar" />
+</$button>
+
+</$reveal>
+
+<$reveal state=<<sideTabName>> type="nomatch" text="">
+<$button>Disable Help-Tab
+<$action-deletetiddler $tiddler=<<sideTabName>> />
+</$button>
+</$reveal>
+</$set>
+</$list>
+
+If you have edited the shadow tiddlers that belong to the plugin, just repackage without making any changes. That way the packaged plugin will incorporate the changes made to the individual tiddlers. Refer to the [[Documentation|$:/plugins/ahahn/tinka/usage]] for help.
+
+It is recommended to create a backup before repackaging a plugin.
+
+!!! Edit Metadata
+<span class="tinka-note">Note: Changes will be committed immediately.</span>
+
+<$set name="currentTiddler" value=<<target>>>
+	<$transclude mode="block" tiddler="$:/plugins/ahahn/tinka/editMetadata"/>
+</$set>
+
+!!! Remove Tiddlers
+<span class="tinka-note">Note: Re-packaging required for changes to take effect.</span>
+
+<$reveal type="match" text="" state=<<qualified-remove-popup>> ><$button set=<<qualified-remove-popup>> setTo="show" class="tc-btn-invisible">{{$:/core/images/right-arrow}} Show plugin tiddlers</$button></$reveal>
+<$reveal type="nomatch" text="" state=<<qualified-remove-popup>> >
+<$button set=<<qualified-remove-popup>> setTo="" class="tc-btn-invisible">{{$:/core/images/down-arrow}} Hide plugin tiddlers</$button>
+<ul>
+	<$list filter=<<plugin-tiddler-selection>> emptyMessage="<i>No tiddlers in plugin.</i>">
+		<li class="tinka-list-item">
+        <$checkbox tiddler=<<qualified-modify-remove>> tag={{!!title}} />
+        <$link to={{!!title}}>{{!!title}}</$link></li>
+	</$list>
+</ul>
+</$reveal>
+
+!!! Add Tiddlers
+<span class="tinka-note">Note: Re-packaging required for changes to take effect.</span>
+
+Use the search box below to select the tiddlers you want to add to the plugin.
+
+{{$:/plugins/ahahn/tinka/searchDisplay}}
+
+
+''Added Tiddlers''
+
+<$set name="addedTiddlers" value=<<qualified-modify-add>> >
+<ul>
+<$list filter=<<added-filter>> emptyMessage="<i>No tiddlers added.</i>">
+		<li class="tinka-list-item">
+        <$checkbox tiddler=<<qualified-modify-add>> tag={{!!title}} />
+        <$link to={{!!title}}>{{!!title}}</$link>
+        </li>
+</$list>
+</ul>
+</$set>
+
+<$reveal state=<<target-type>> type="match" text="theme">
+<span class="tinka-note-red">Warning: Themes can only be repackaged if the theme is currently active or loaded as a dependant!</span>
+</$reveal>
+
+
+<$button class="tc-btn-big-green tinka-orange">
+<$tinka-saveTaglistToField $target=<<qualified-modify-remove>> $tiddler=<<qualified-modify-diff>> $field="removeTiddlers"/>
+<$tinka-saveTaglistToField $target=<<qualified-modify-add>> $tiddler=<<qualified-modify-diff>> $field="addTiddlers"/>
+<$tinka-repackagePlugin $plugin=<<target>> $create="no" $diff=<<qualified-modify-diff>> />
+<$action-deletetiddler $tiddler=<<qualified-modify-remove>>/>
+<$action-deletetiddler $tiddler=<<qualified-modify-add>>/>
+<$action-deletetiddler $tiddler=<<qualified-modify-diff>>/>
+<$action-sendmessage $message="tm-modal" $param="$:/plugins/ahahn/tinka/packageSuccess" />Re-package plugin</$button>
+<$button class="tc-btn-big-green tinka-blue">
+<$tinka-backupPlugin $plugin=<<target>> />
+<$action-sendmessage $message="tm-modal" $param="$:/plugins/ahahn/tinka/backupSuccess" />Create Backup</$button>
+
+</$set>
