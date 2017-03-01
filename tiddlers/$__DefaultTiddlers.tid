@@ -1,9 +1,8 @@
 created: 20170227183410858
 creator: Andreas
-modified: 20170227183418737
+modified: 20170301233310441
 modifier: Andreas
 title: $:/DefaultTiddlers
 type: text/vnd.tiddlywiki
 
-Intro
-$:/ControlPanel
+[list[$:/StoryList]]

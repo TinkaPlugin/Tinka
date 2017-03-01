@@ -5,6 +5,13 @@ This is a Control Panel extension that aims to simplify the plugin creation and 
 
 <a target="blank" href="http://tinkaplugin.github.io">Project Homepage on tinkaplugin.github.io</a>
 
+## How to install Tinka
+
+There are a few ways you could install Tinka into your own wiki:
+* Go to <a target="blank" href="http://tinkaplugin.github.io">tinkaplugin.github.io</a> and Drag&Drop from there.
+* Clone this repository and import the `output/tinka.tid` file into your wiki.
+* Save the file located <a href="https://raw.githubusercontent.com/TinkaPlugin/Tinka/master/output/tinka.tid">here</a> and import it into your wiki.
+
 ## Version History
 
 ### 2017-03-01 Release of version 0.3.0
