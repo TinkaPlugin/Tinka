@@ -145,7 +145,14 @@ Use the search box below to select the tiddlers you want to add to the plugin.
 
 		<$set name="createTitleOrg" value={{!!create-title-org}}>
 			<$set name="createTitleName" value={{!!create-title-name}}>
-				<$action-setfield create-title=<<concatPluginTitle "$:/plugins/" "/">> />
+                <!--If the plugin is a theme, use a different plugin-prefix -->
+                <$reveal state=<<tiddlerReference "!!create-plugin-type">> type="match" text="theme">
+				    <$action-setfield create-title=<<concatPluginTitle "$:/themes/" "/">> />
+                </$reveal>
+
+                <$reveal state=<<tiddlerReference "!!create-plugin-type">> type="nomatch" text="theme">
+				    <$action-setfield create-title=<<concatPluginTitle "$:/plugins/" "/">> />
+                </$reveal>
 			</$set>
 		</$set>
 	

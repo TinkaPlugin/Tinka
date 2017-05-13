@@ -14,6 +14,16 @@ There are a few ways you could install Tinka into your own wiki:
 
 ## Version History
 
+### 2017-05-13 Release of version 0.4.0
+
+This release fixes the following bugs:
+
+**Changelog**
+
+* Themes will now get the correct prefix `$:/themes/` when packaging
+* Fixed search results not linking properly
+* Added description field when creating a new theme
+
 ### 2017-03-01 Release of version 0.3.0
 
 After more than a year, Tinka is now on <a target="blank" href="http://tinkaplugin.github.io">github</a> and also released under the MIT license.

@@ -93,7 +93,7 @@ It is recommended to create a backup before repackaging a plugin.
 	<$list filter=<<plugin-tiddler-selection>> emptyMessage="<i>No tiddlers in plugin.</i>">
 		<li class="tinka-list-item">
         <$checkbox tiddler=<<qualified-modify-remove>> tag={{!!title}} />
-        <$link to={{!!title}}>{{!!title}}</$link></li>
+        <$link to={{!!title}}><$text text={{!!title}} /></$link></li>
 	</$list>
 </ul>
 </$reveal>
