@@ -20,6 +20,18 @@ Also version suffixes such as:
 
 are supported and will be appended to the new version number when present.
 
+!! Adding items to the list field
+
+Items added to the `list` field will become tab entries in the generated plugin. Each item in the list should have a corresponding tiddler with the format:
+
+```
+$:/plugins/<author>/<plugin>/<tiddler>
+```
+
+where `<author>` is the name you provided as author, `<plugin>` is the name of the plugin you are creating, and `<tiddler>` is the same as the name that appears in the list entry.
+
+The contents of the tab referenced in the `list` field will then be provided by the corresponding `$:/plugins/<author>/<plugin>/<tiddler>` tiddler.
+
 !! Plugin mechanism
 For more information about how the plugin mechanism in TiddlyWiki works, see the official documentation: http://tiddlywiki.com/#PluginMechanism
 
