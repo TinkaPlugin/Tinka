@@ -17,11 +17,11 @@ $:/config/Plugins/Disabled/$(currentTiddler)$
 \end
 
 \define plugin-table-body(type,disabledMessage)
-<div class="tc-plugin-info-chunk">
+<div class="tc-plugin-info-chunk tc-plugin-info-icon">
 <$transclude tiddler=<<currentTiddler>> subtiddler=<<plugin-icon-title>>>
 <$transclude tiddler="$:/core/images/plugin-generic-$type$"/>
 </$transclude></div>
-<div class="tc-plugin-info-chunk">
+<div class="tc-plugin-info-chunk tc-plugin-info-description">
 <h1>''<$view field="description"><$view field="title"/></$view>'' $disabledMessage$
 </h1>
 <h2>

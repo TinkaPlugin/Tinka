@@ -20,7 +20,7 @@ $:/config/Plugins/Disabled/$(currentTiddler)$
 \end
 
 \define plugin-table-body(type,disabledMessage)
-<div class="tc-plugin-info-chunk tc-small-icon">
+<div class="tc-plugin-info-chunk tc-plugin-info-toggle">
 <$reveal type="nomatch" state=<<popup-state>> text="yes">
 <$button class="tc-btn-invisible tc-btn-dropdown" set=<<popup-state>> setTo="yes">
 {{$:/core/images/right-arrow}}
@@ -32,12 +32,12 @@ $:/config/Plugins/Disabled/$(currentTiddler)$
 </$button>
 </$reveal>
 </div>
-<div class="tc-plugin-info-chunk">
+<div class="tc-plugin-info-chunk tc-plugin-info-icon">
 <$transclude tiddler=<<currentTiddler>> subtiddler=<<plugin-icon-title>>>
 <$transclude tiddler="$:/core/images/plugin-generic-$type$"/>
 </$transclude>
 </div>
-<div class="tc-plugin-info-chunk">
+<div class="tc-plugin-info-chunk tc-plugin-info-description">
 <h1>
 ''<$view field="description"><$view field="title"/></$view>'' $disabledMessage$
 </h1>
