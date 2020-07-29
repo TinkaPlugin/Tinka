@@ -38,7 +38,7 @@ $(TinkaVars)$$ref$
 
 !! Create New Plugin
 
-<span class="tinka-note">Usage: Enter the necessary metadata for your plugin and use the Filter selection below to pick the tiddlers that should be added to the plugin. After selecting the tiddlers, press 'Package Plugin'. Refer to the [[Documentation|$:/plugins/ahahn/tinka/usage]] for further help.</span>
+<span class="tinka-note">Usage: Enter the necessary metadata for your plugin and use the Filter selection below to pick the tiddlers that should be added to the plugin. After selecting the tiddlers, press 'Package Plugin'. Refer to the <span style="font-style:normal;">[[Documentation|$:/plugins/ahahn/tinka/usage]]</span> for further help.</span>
 
 <$set name="target" value="skeleton">
 <$set name="qualifiedTiddler" value=<<qualify "$:/temp/tinka/modify">> >
@@ -100,23 +100,19 @@ Use the search box below to select the tiddlers you want to add to the plugin.
 		</$tinka-filter>
 	</$tinka-check>
 		
-		<!-- Check whether a name was given, depending on the plugin type-->
-		<$reveal state=<<tiddlerReference "!!create-plugin-type">> type="match" text="plugin">
-			<$tinka-check text={{!!create-description}} pattern="^.+$">
-				<$tinka-filter verb="fail">
-					<$action-setfield $tiddler=<<TinkaVars>> result="true"/>
-					<$action-setfield $tiddler=<<TinkaVars>> errorPlugin="You have to enter a plugin title."/>
-				</$tinka-filter>
-			</$tinka-check>
-		</$reveal>
-		<$reveal state=<<tiddlerReference "!!create-plugin-type">> type="match" text="theme">
-			<$tinka-check text={{!!create-name}} pattern="^.+$">
-				<$tinka-filter verb="fail">
-					<$action-setfield $tiddler=<<TinkaVars>> result="true"/>
-					<$action-setfield $tiddler=<<TinkaVars>> errorTheme="You have to enter a theme title."/>
-				</$tinka-filter>
-			</$tinka-check>
-		</$reveal>
+		<!-- Check whether a name and a description was given-->
+		<$tinka-check text={{!!create-description}} pattern="^.+$">
+			<$tinka-filter verb="fail">
+				<$action-setfield $tiddler=<<TinkaVars>> result="true"/>
+				<$action-setfield $tiddler=<<TinkaVars>> errorPlugin="You have to enter a plugin title."/>
+			</$tinka-filter>
+		</$tinka-check>
+		<$tinka-check text={{!!create-name}} pattern="^.+$">
+			<$tinka-filter verb="fail">
+				<$action-setfield $tiddler=<<TinkaVars>> result="true"/>
+				<$action-setfield $tiddler=<<TinkaVars>> errorTheme="You have to enter a theme title."/>
+			</$tinka-filter>
+		</$tinka-check>
 		
 		<!--Check Version numbers, if entered-->
 		<$reveal state=<<tiddlerReference "!!create-version">> type="nomatch" text="">

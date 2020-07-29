@@ -4,7 +4,8 @@ tags: $:/tags/TinkaSearch
 title: $:/plugins/ahahn/tinka/search-filter
 type: text/vnd.tiddlywiki
 
-Enter Filterstring to select tiddlers: <$edit-text tiddler="$:/temp/tinka/search" type="search" default="" tag="input"/> <$reveal state="$:/temp/tinka/search" type="nomatch" text=""><$button class="tc-btn-invisible" set="$:/temp/tinka/search" setTo="">{{$:/core/images/close-button}}</$button></$reveal>
+
+Enter Filterstring to select tiddlers: <$edit-text tiddler="$:/temp/tinka/search" type="search" default="[prefix[$:/plugins/TODO]]" tag="input"/> <$reveal state="$:/temp/tinka/search" type="nomatch" text=""><$button class="tc-btn-invisible" set="$:/temp/tinka/search" setTo="">{{$:/core/images/close-button}}</$button></$reveal>
 <ul>
 <$list filter={{$:/temp/tinka/search}} emptyMessage="<li class='tinka-list-item'><i>No Tiddlers selected.</i></li>">
 		<li class="tinka-list-item">

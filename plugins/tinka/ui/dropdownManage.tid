@@ -51,6 +51,10 @@ $(pluginSuffix)$ - Help Tab
 </$set>
 \end
 
+\define buttonRow()
+
+\end
+
 <$set name="qualifiedTiddler" value=<<qualify "$:/temp/tinka/modify">> >
 
 <$list filter=<<pluginSuffixFilter>> variable="pluginSuffix">

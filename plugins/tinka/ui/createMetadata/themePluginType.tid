@@ -2,11 +2,11 @@ title: $:/plugins/ahahn/tinka/createMetadata/themePluginType
 type: text/vnd.tiddlywiki
 
 <tr>
-    <td>''Theme Title:''</td>
+    <td>''Theme Name:''</td>
     <td colspan="3"><$edit-text  class="tinka-full-edit" tag="input" type="text" placeholder="e.g. My cool theme" field="create-name"/></td>
 </tr>
 
 <tr>
-        <td>Description:</td>
+        <td>''Theme Description:''</td>
         <td colspan="3"><$edit-text class="tinka-full-edit" tag="input" type="text" placeholder="e.g. My description" field="create-description"/></td>
 </tr>
