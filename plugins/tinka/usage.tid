@@ -11,7 +11,7 @@ type: text/vnd.tiddlywiki
 
 !! Notes
 
-When packaging or repackaging a plugin, the version number of the plugin is automatically increased. This might not be wanted in all cases and has to be manually corrected after packaging.
+When ''repackaging'' a plugin, the version number of the plugin is automatically increased. This might not be wanted in all cases and has to be manually corrected after packaging.
 
 Also version suffixes such as:
 

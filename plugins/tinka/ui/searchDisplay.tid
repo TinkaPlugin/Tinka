@@ -1,4 +1,21 @@
 title: $:/plugins/ahahn/tinka/searchDisplay
 type: text/vnd.tiddlywiki
 
+\define selectAllButtons(sa_filter)
+<$fieldmangler tiddler=<<qualified-modify-add>> >
+	<$button>
+		Select All
+		<$list filter="$sa_filter$">
+			<$action-sendmessage $message="tm-add-tag" $param=<<currentTiddler>> />
+		</$list>
+	</$button>
+	<$button>
+		Unselect All
+		<$list filter="$sa_filter$">
+			<$action-sendmessage $message="tm-remove-tag" $param=<<currentTiddler>> />
+		</$list>
+	</$button>
+</$fieldmangler>
+\end
+
 <<tabs "[[$:/plugins/ahahn/tinka/search-default]] [[$:/plugins/ahahn/tinka/search-filter]]" "$:/plugins/ahahn/tinka/search-default" "$:/temp/tinka/searchTab">>

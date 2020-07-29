@@ -1,0 +1,11 @@
+author: Andreas Hahn
+created: 20170227183818790
+description: Test Plugin
+list: [[Entry A]]
+modified: 20200729220804816
+note: Older backup of the Test Plugin
+original-title: $:/plugins/ahahn/testPlugin
+plugin-type: plugin-backup
+title: $:/plugins/ahahn/testPlugin-0.0.18-backup
+type: application/json
+version: 0.0.18

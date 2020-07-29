@@ -7,7 +7,7 @@ type: text/vnd.tiddlywiki
 [all[tiddlers]search:title{$(searchTiddler)$}sort[title]]
 \end
 
-Enter search term: <$edit-text tiddler="$:/temp/tinka/search" type="search" default="" tag="input"/> <$reveal state="$:/temp/tinka/search" type="nomatch" text=""><$button class="tc-btn-invisible" set="$:/temp/tinka/search" setTo="">{{$:/core/images/close-button}}</$button></$reveal>
+Enter search term: <$edit-text class="tinka-full-edit" tiddler="$:/temp/tinka/search" type="search" default="" tag="input"/> <$reveal state="$:/temp/tinka/search" type="nomatch" text=""><$button class="tc-btn-invisible" set="$:/temp/tinka/search" setTo="">{{$:/core/images/close-button}}</$button></$reveal>
 
 <$reveal state="$:/temp/tinka/search" type="nomatch" text="">
     <$set name="searchTiddler" value="$:/temp/tinka/search">
@@ -19,6 +19,8 @@ Enter search term: <$edit-text tiddler="$:/temp/tinka/search" type="search" defa
             </li>
     </$list>
     </ul>
+
+	<$macrocall $name="selectAllButtons" sa_filter=<<searchstring>> />
     </$set>
 </$reveal>
 

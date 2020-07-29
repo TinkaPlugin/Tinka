@@ -77,6 +77,14 @@ button.tinka-sidebar-button, button.tinka-invisible  {
   font-size: 0.8em;
 }
 
+.tinka-backup-info {
+flex-wrap: wrap;
+}
+
+.tinka-backup-info .tinka-backup-note {
+flex-basis: 100%;
+}
+
 /* ==text formatting== */
 
 .tinka-list-item {
@@ -115,6 +123,10 @@ table.tinka-meta-table tr td {
 .tc-control-panel input.tinka-inline-edit {
   width: 30%;
   min-width: 30pt;
+}
+
+.tinka-full-edit {
+  width: 100%;
 }
 
 .tc-control-panel input.tinka-full-edit,  input.tinka-full-edit {

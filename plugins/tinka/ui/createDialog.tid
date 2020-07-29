@@ -154,6 +154,8 @@ Use the search box below to select the tiddlers you want to add to the plugin.
 	
 		<$tinka-saveTaglistToField $target=<<qualified-modify-add>> $tiddler=<<qualified-modify-diff>> $field="addTiddlers"/>
 		<$tinka-repackagePlugin $plugin="$:/plugins/unknown/newPlugin" $create="yes" $diff=<<qualified-modify-diff>> />
+		<!-- Adjust version number to not be increased -->
+		<$action-setfield $tiddler={{!!create-title}} version={{!!create-version}} />
 		<$action-deletetiddler $tiddler=<<qualified-modify-add>>/>
 		<$action-deletetiddler $tiddler=<<qualified-modify-diff>>/>
 		<$action-sendmessage $message="tm-modal" $param="$:/plugins/ahahn/tinka/packageSuccess" />

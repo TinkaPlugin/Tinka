@@ -52,33 +52,45 @@ $(pluginSuffix)$ - Help Tab
 \end
 
 \define buttonRow()
-
-\end
-
-<$set name="qualifiedTiddler" value=<<qualify "$:/temp/tinka/modify">> >
-
-<$list filter=<<pluginSuffixFilter>> variable="pluginSuffix">
-<<SidebarTabName>>
-<$set name="sideTabName" value=<<sideTabNameBuilder>> >
-
-<$reveal state=<<sideTabName>> type="match" text="">
-<$button>Enable Help-Tab
-<$action-setfield $tiddler=<<sideTabName>> text=<<helpTabText>> caption=<<helpTabCaption>> tags="$:/tags/SideBar" />
-</$button>
-
+<$reveal state=<<target-type>> type="match" text="theme">
+<span class="tinka-note-red">Warning: Themes can only be repackaged if the theme is currently active or loaded as a dependant!</span>
 </$reveal>
 
+<$button class="tc-btn-big-green tinka-orange">
+<$tinka-saveTaglistToField $target=<<qualified-modify-remove>> $tiddler=<<qualified-modify-diff>> $field="removeTiddlers"/>
+<$tinka-saveTaglistToField $target=<<qualified-modify-add>> $tiddler=<<qualified-modify-diff>> $field="addTiddlers"/>
+<$tinka-repackagePlugin $plugin=<<target>> $create="no" $diff=<<qualified-modify-diff>> />
+<$action-deletetiddler $tiddler=<<qualified-modify-remove>>/>
+<$action-deletetiddler $tiddler=<<qualified-modify-add>>/>
+<$action-deletetiddler $tiddler=<<qualified-modify-diff>>/>
+<$action-sendmessage $message="tm-modal" $param="$:/plugins/ahahn/tinka/packageSuccess" />Re-package plugin</$button>
+<$button class="tc-btn-big-green tinka-blue">
+<$tinka-backupPlugin $plugin=<<target>> />
+<$action-sendmessage $message="tm-modal" $param="$:/plugins/ahahn/tinka/backupSuccess" />Create Backup</$button>
+<$list filter=<<pluginSuffixFilter>> variable="pluginSuffix">
+<$set name="sideTabName" value=<<sideTabNameBuilder>> >
+<$reveal state=<<sideTabName>> type="match" text="">
+<$button class="tc-btn-big-green tinka-blue">Enable Sidebar-Tab
+<$action-setfield $tiddler=<<sideTabName>> text=<<helpTabText>> caption=<<helpTabCaption>> tags="$:/tags/SideBar" />
+</$button>
+</$reveal>
 <$reveal state=<<sideTabName>> type="nomatch" text="">
-<$button>Disable Help-Tab
+<$button class="tc-btn-big-green tinka-blue">Disable Sidebar-Tab
 <$action-deletetiddler $tiddler=<<sideTabName>> />
 </$button>
 </$reveal>
 </$set>
 </$list>
 
+\end
+
+<$set name="qualifiedTiddler" value=<<qualify "$:/temp/tinka/modify">> >
+
 If you have edited the shadow tiddlers that belong to the plugin, just repackage without making any changes. That way the packaged plugin will incorporate the changes made to the individual tiddlers. Refer to the [[Documentation|$:/plugins/ahahn/tinka/usage]] for help.
 
-It is recommended to create a backup before repackaging a plugin.
+<<buttonRow>>
+
+<span class="tinka-note">Note: It is recommended to create a backup before repackaging a plugin.</span>
 
 !!! Edit Metadata
 <span class="tinka-note">Note: Changes will be committed immediately.</span>
@@ -123,21 +135,6 @@ Use the search box below to select the tiddlers you want to add to the plugin.
 </ul>
 </$set>
 
-<$reveal state=<<target-type>> type="match" text="theme">
-<span class="tinka-note-red">Warning: Themes can only be repackaged if the theme is currently active or loaded as a dependant!</span>
-</$reveal>
-
-
-<$button class="tc-btn-big-green tinka-orange">
-<$tinka-saveTaglistToField $target=<<qualified-modify-remove>> $tiddler=<<qualified-modify-diff>> $field="removeTiddlers"/>
-<$tinka-saveTaglistToField $target=<<qualified-modify-add>> $tiddler=<<qualified-modify-diff>> $field="addTiddlers"/>
-<$tinka-repackagePlugin $plugin=<<target>> $create="no" $diff=<<qualified-modify-diff>> />
-<$action-deletetiddler $tiddler=<<qualified-modify-remove>>/>
-<$action-deletetiddler $tiddler=<<qualified-modify-add>>/>
-<$action-deletetiddler $tiddler=<<qualified-modify-diff>>/>
-<$action-sendmessage $message="tm-modal" $param="$:/plugins/ahahn/tinka/packageSuccess" />Re-package plugin</$button>
-<$button class="tc-btn-big-green tinka-blue">
-<$tinka-backupPlugin $plugin=<<target>> />
-<$action-sendmessage $message="tm-modal" $param="$:/plugins/ahahn/tinka/backupSuccess" />Create Backup</$button>
+<<buttonRow>>
 
 </$set>

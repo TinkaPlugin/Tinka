@@ -7,6 +7,19 @@ This is a Control Panel extension that aims to simplify the plugin creation and 
 
 !! Version History
 
+!!! 2020-07-30 Release of version 0.5.0-beta
+
+''Changelog''
+
+* Fixed graphical glitches with newer versions of TW5
+* Reworked the interface for modifying plugins
+* Added the ability to select and unselect all search results when adding tiddlers to plugins
+* `name` and `description` field are now used for both plugins and themes
+* Added default filter to the search
+* You can now attach notes to backups
+* Renamed control panel tabs
+* The version will correctly be set when creating a new plugin
+
 !!! 2017-05-13 Release of version 0.4.0
 
 This release fixes the following bugs:

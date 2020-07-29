@@ -9,14 +9,6 @@ type: text/vnd.tiddlywiki
 [all[tiddlers]prefix[$(pluginPrefix)$]sort[]]
 \end
 
-\define newPluginTiddler()
-$(pluginPrefix)$/New Tiddler
-\end
-
-<$button class="tc-btn-invisible tinka-invisible">
-<$action-sendmessage $message="tm-new-tiddler" $param=<<newPluginTiddler>> />''
-{{$:/core/images/new-button}} Add Tiddler''</$button>
-
 !!!Shadow tiddlers contained in the plugin:
 
 <$list filter=<<pluginFilter>> template="$:/core/ui/ListItemTemplate"/>

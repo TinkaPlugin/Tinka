@@ -4,13 +4,28 @@ tags: $:/tags/TinkaSearch
 title: $:/plugins/ahahn/tinka/search-filter
 type: text/vnd.tiddlywiki
 
+\define defaultFilter()
+[prefix[$(target)$]]
+\end
 
-Enter Filterstring to select tiddlers: <$edit-text tiddler="$:/temp/tinka/search" type="search" default="[prefix[$:/plugins/TODO]]" tag="input"/> <$reveal state="$:/temp/tinka/search" type="nomatch" text=""><$button class="tc-btn-invisible" set="$:/temp/tinka/search" setTo="">{{$:/core/images/close-button}}</$button></$reveal>
+Enter Filterstring to select tiddlers: <$edit-text class="tinka-full-edit" tiddler="$:/temp/tinka/search" type="search" default=<<defaultFilter>> placeholder=<<defaultFilter>> tag="input"/> <$reveal state="$:/temp/tinka/search" type="nomatch" text=""><$button class="tc-btn-invisible" set="$:/temp/tinka/search" setTo="">{{$:/core/images/close-button}}</$button></$reveal>
 <ul>
+<$reveal text="" type="nomatch" state="$:/temp/tinka/search">
 <$list filter={{$:/temp/tinka/search}} emptyMessage="<li class='tinka-list-item'><i>No Tiddlers selected.</i></li>">
 		<li class="tinka-list-item">
         <$checkbox tiddler=<<qualified-modify-add>> tag={{!!title}} />
         <$link to={{!!title}}><$text text={{!!title}} /></$link>
         </li>
 </$list>
+<$macrocall $name="selectAllButtons" sa_filter={{$:/temp/tinka/search}} />
+</$reveal>
+<$reveal text="" type="match" state="$:/temp/tinka/search">
+<$list filter=<<defaultFilter>> emptyMessage="<li class='tinka-list-item'><i>No Tiddlers selected.</i></li>">
+		<li class="tinka-list-item">
+        <$checkbox tiddler=<<qualified-modify-add>> tag={{!!title}} />
+        <$link to={{!!title}}><$text text={{!!title}} /></$link>
+        </li>
+</$list>
+<$macrocall $name="selectAllButtons" sa_filter=<<defaultFilter>> />
+</$reveal>
 </ul>
