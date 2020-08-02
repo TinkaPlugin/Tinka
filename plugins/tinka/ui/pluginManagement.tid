@@ -24,17 +24,21 @@ type: text/vnd.tiddlywiki
 </$list>
 \end
 
-''Choose Plugin to Modify:'' <$edit-text tag="input" type="text" placeholder="$:/plugins/myPlugin" tiddler="$:/temp/tinka/ModifyPluginSearch" field="search"/>
+''Choose Plugin to Modify:'' <$edit-text tag="input" type="text" placeholder="$:/plugins/myPlugin" focusPopup="$:/temp/tinka/ModifyPluginPopup" class="tc-popup-handle" tiddler="$:/temp/tinka/ModifyPluginSearch" field="search" cancelPopups="yes"/>
 <$button popup="$:/temp/tinka/ModifyPluginPopup" class="tc-btn-invisible tc-btn-dropdown">{{$:/core/images/down-arrow}}</$button>
 
 <$reveal state="$:/temp/tinka/ModifyPluginPopup" type="popup" position="below">
 <div class="tc-block-dropdown tc-edit-type-dropdown">
 <$linkcatcher to="$:/temp/tinka/ModifyPluginSearch!!search">
-<h3>Plugins:</h3>
+<div class="tc-dropdown-item">
+Plugins
+</div>
 <$list filter="[!has[draft.of]plugin-type[plugin]sort[description]]" emptyMessage=<<lingo "Empty/Hint">>>
 	<$link to=<<currentTiddler>> >''<$text text={{{ [<currentTiddler>get[name]] ~[<currentTiddler>split[/]last[1]] }}} />'' - <$view field="version" /></$link>
 </$list>
-<h3>Themes:</h3>
+<div class="tc-dropdown-item">
+Themes
+</div>
 <$list filter="[!has[draft.of]plugin-type[theme]sort[description]]" emptyMessage=<<lingo "Empty/Hint">>>
 	<$link to=<<currentTiddler>> >''<$text text={{{ [<currentTiddler>get[name]] ~[<currentTiddler>split[/]last[1]] }}} />'' - <$view field="version" /></$link>
 </$list>

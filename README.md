@@ -14,7 +14,7 @@ There are a few ways you could install Tinka into your own wiki:
 
 ## Version History
 
-### 2020-07-30 Release of version 0.5.0-beta
+### 2020-08-03 Release of version 0.5.0
 
 I managed to update Tinka to work more nicely with newer versions of TiddlyWiki:
 

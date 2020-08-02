@@ -27,9 +27,9 @@ type: text/vnd.tiddlywiki
 </div>
 </$reveal>
 
-<$button class="tc-btn-big-green tinka-orange">
+<$button class="tinka-orange">
 <$tinka-repackagePlugin $plugin=<<pluginPrefix>> $create="no" $diff="$:/plugins/ahahn/tinka/emptyDiff" />
 <$action-sendmessage $message="tm-modal" $param="$:/plugins/ahahn/tinka/packageSuccess" />Quick-Package</$button>
 <$button class="tc-btn-big-green tinka-blue">
 <$action-deletetiddler $tiddler=<<currentTiddler>> />
-Disable Help Tab</$button>
+Disable Sidebar-Tab</$button>

@@ -53,33 +53,35 @@ $(pluginSuffix)$ - Help Tab
 
 \define buttonRow()
 <$reveal state=<<target-type>> type="match" text="theme">
-<span class="tinka-note-red">Warning: Themes can only be repackaged if the theme is currently active or loaded as a dependant!</span>
+	<span class="tinka-note-red">Warning: Themes can only be repackaged if the theme is currently active or loaded as a dependant!</span>
 </$reveal>
 
-<$button class="tc-btn-big-green tinka-orange">
-<$tinka-saveTaglistToField $target=<<qualified-modify-remove>> $tiddler=<<qualified-modify-diff>> $field="removeTiddlers"/>
-<$tinka-saveTaglistToField $target=<<qualified-modify-add>> $tiddler=<<qualified-modify-diff>> $field="addTiddlers"/>
-<$tinka-repackagePlugin $plugin=<<target>> $create="no" $diff=<<qualified-modify-diff>> />
-<$action-deletetiddler $tiddler=<<qualified-modify-remove>>/>
-<$action-deletetiddler $tiddler=<<qualified-modify-add>>/>
-<$action-deletetiddler $tiddler=<<qualified-modify-diff>>/>
-<$action-sendmessage $message="tm-modal" $param="$:/plugins/ahahn/tinka/packageSuccess" />Re-package plugin</$button>
-<$button class="tc-btn-big-green tinka-blue">
-<$tinka-backupPlugin $plugin=<<target>> />
-<$action-sendmessage $message="tm-modal" $param="$:/plugins/ahahn/tinka/backupSuccess" />Create Backup</$button>
+<$button class="tinka-orange">Re-package plugin
+	<$tinka-saveTaglistToField $target=<<qualified-modify-remove>> $tiddler=<<qualified-modify-diff>> $field="removeTiddlers"/>
+	<$tinka-saveTaglistToField $target=<<qualified-modify-add>> $tiddler=<<qualified-modify-diff>> $field="addTiddlers"/>
+	<$tinka-repackagePlugin $plugin=<<target>> $create="no" $diff=<<qualified-modify-diff>> />
+	<$action-deletetiddler $tiddler=<<qualified-modify-remove>>/>
+	<$action-deletetiddler $tiddler=<<qualified-modify-add>>/>
+	<$action-deletetiddler $tiddler=<<qualified-modify-diff>>/>
+	<$action-sendmessage $message="tm-modal" $param="$:/plugins/ahahn/tinka/packageSuccess" />
+</$button>
+<$button class="tinka-blue">Create Backup
+	<$tinka-backupPlugin $plugin=<<target>> />
+	<$action-sendmessage $message="tm-modal" $param="$:/plugins/ahahn/tinka/backupSuccess" />
+</$button>
 <$list filter=<<pluginSuffixFilter>> variable="pluginSuffix">
-<$set name="sideTabName" value=<<sideTabNameBuilder>> >
-<$reveal state=<<sideTabName>> type="match" text="">
-<$button class="tc-btn-big-green tinka-blue">Enable Sidebar-Tab
-<$action-setfield $tiddler=<<sideTabName>> text=<<helpTabText>> caption=<<helpTabCaption>> tags="$:/tags/SideBar" />
-</$button>
-</$reveal>
-<$reveal state=<<sideTabName>> type="nomatch" text="">
-<$button class="tc-btn-big-green tinka-blue">Disable Sidebar-Tab
-<$action-deletetiddler $tiddler=<<sideTabName>> />
-</$button>
-</$reveal>
-</$set>
+	<$set name="sideTabName" value=<<sideTabNameBuilder>> >
+	<$reveal state=<<sideTabName>> type="match" text="">
+		<$button class="tinka-blue">Enable Sidebar-Tab
+			<$action-setfield $tiddler=<<sideTabName>> text=<<helpTabText>> caption=<<helpTabCaption>> tags="$:/tags/SideBar" />
+		</$button>
+	</$reveal>
+	<$reveal state=<<sideTabName>> type="nomatch" text="">
+		<$button class="tinka-blue">Disable Sidebar-Tab
+		<$action-deletetiddler $tiddler=<<sideTabName>> />
+		</$button>
+	</$reveal>
+	</$set>
 </$list>
 
 \end

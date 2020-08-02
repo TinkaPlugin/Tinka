@@ -4,7 +4,7 @@
 	"name": "Tinka",
     "description": "An easy plugin packer",
     "list": "readme usage license",
-    "source": "http://tinkaplugin.github.io",
+    "source": "https://tinkaplugin.github.io",
     "title": "$:/plugins/ahahn/tinka",
-    "version": "0.5.0-beta"
+    "version": "0.5.0"
 }

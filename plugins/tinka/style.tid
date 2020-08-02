@@ -7,18 +7,34 @@ type: text/vnd.tiddlywiki
 /* ==button styles== */
 
 button.tinka-blue, button.tinka-orange {
+  display: inline-block;
+  margin: 0.4em;
+  padding: 0.5em;
+  border: none;
+  border-radius: 0.1em; 
   font-weight: normal;
   font-size: 1em;
+  cursor: pointer;
   color: #fff;
   fill: #fff;
 }
 
 .tinka-blue {
   background-color: #5E9FCA;
+  box-shadow: 0.1em 0.1em 0.4em 0 #355;
+}
+
+.tinka-blue:active {
+  background-color: #6EAFDA;
 }
 
 .tinka-orange {
   background-color: #FF8C19;
+  box-shadow: 0.1em 0.1em 0.4em 0 #841;
+}
+
+.tinka-orange:active {
+  background-color: #FF9C29;
 }
 
 .tinka-archive-buttons {
